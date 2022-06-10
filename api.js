@@ -1,8 +1,14 @@
 const express = require("express");
 const req = require("express/lib/request");
+const { default: mongoose } = require("mongoose");
 const user = require("./user.controller");
 const app = express();
 const port = 3000;
+
+app.use(express.json());
+mongoose.connect(
+  "mongodb+srv://prueba:prueba@cluster0.qn56onk.mongodb.net/miapp?retryWrites=true&w=majority"
+);
 
 //Endpoints
 app.get("/", user.list);

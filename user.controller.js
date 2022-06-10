@@ -1,19 +1,22 @@
 const req = require("express/lib/request");
+const Users = require("./Users");
 
 const User = {
-  get: (req, res) => {
+  get: async (req, res) => {
     res.status(200).send("Este es unchanchitos");
   },
-  list: (req, res) => {
-    res.status(200).send("Hola chanchitos");
+  list: async (req, res) => {
+    const users = await User.find();
+    res.status(200).send(users);
   },
-  create: (req, res) => {
+  create: async (req, res) => {
+    console.log(req.body);
     res.status(201).send("Creando chanchitos");
   },
-  update: (req, res) => {
+  update: async (req, res) => {
     res.status(204).send("Actualizando chanchitos");
   },
-  destroy: (req, res) => {
+  destroy: async (req, res) => {
     res.status(204).send("Eliminando chanchitos");
   },
 };

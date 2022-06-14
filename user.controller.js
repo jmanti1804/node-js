@@ -1,5 +1,5 @@
-const req = require("express/lib/request");
-const Users = require("./Users");
+// const req = require("express/lib/request");
+const Users = require("./User");
 
 const User = {
   get: async (req, res) => {
@@ -8,7 +8,7 @@ const User = {
     res.status(200).send(user);
   },
   list: async (req, res) => {
-    const users = await User.find();
+    const users = await Users.find();
     res.status(200).send(users);
   },
   create: async (req, res) => {
